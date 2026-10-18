@@ -676,3 +676,9 @@ section{position:relative}
    so the hand-over to the homepage is pixel-for-pixel seamless */
 .intro-hero{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .intro-hero img{width:100%;height:100%;object-fit:cover;object-position:60% 47%;transform:scale(1.08)}
+/* keep the walk-through cheap for Chrome: draw the doorway once and zoom that picture
+   (no re-drawing at huge sizes), and no blur or blend on the light rays */
+.intro-doors .door-rig{will-change:transform,opacity;backface-visibility:hidden}
+.intro-doors .door-rays{filter:none;mix-blend-mode:normal}
+.intro-doors .door-light{mix-blend-mode:normal}
+.intro-doors .door-dust{mix-blend-mode:normal}

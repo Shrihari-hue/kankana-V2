@@ -221,17 +221,17 @@
       .to(['.gate-wall', '.leaf-face'], { filter: 'brightness(.75) sepia(.35) saturate(1.3)', duration: 1.4 }, A + 0.3)
       .fromTo('.door-light', { opacity: 0 }, { opacity: 0.6, duration: 0.9, ease: 'power1.out' }, A + 0.12)
       .to('.door-light', { opacity: 0.25, duration: 1.2, ease: 'power1.inOut' }, A + 1.0)
-      .fromTo('.door-rays', { opacity: 0, rotation: -4 }, { opacity: 0.25, rotation: 4, duration: 2.4, ease: 'sine.inOut' }, A + 0.12)
+      .fromTo('.door-rays', { opacity: 0, rotation: -4 }, { opacity: 0.25, rotation: 0, duration: 1.0, ease: 'sine.inOut' }, A + 0.12)
       .add(() => dust && dust.start(), A + 0.1)
       .fromTo('.door-dust', { opacity: 0 }, { opacity: 1, duration: 0.8 }, A + 0.2)
       .fromTo('.door-sheen', { opacity: 0 }, { opacity: 1, duration: 1.1, ease: 'power1.inOut' }, A + 0.15)
       .fromTo('.door-shade', { opacity: 0 }, { opacity: 0.6, duration: 1.4, ease: 'power1.inOut' }, A + 0.3)
       .add(fallOver, A + 0.9)
       // the camera walks forward through the doorway
-      .to(rig, { scale: () => Math.max(W / D.w, H / D.h) * 1.35, duration: 2.1, ease: 'power3.in' }, A + 0.6)
-      .to(rig, { opacity: 0, duration: 0.7, ease: 'power1.inOut' }, A + 2.0)
+      .to(rig, { scale: () => Math.min(2.6, Math.max(W / D.w, H / D.h) * 1.1), duration: 1.7, ease: 'power2.in' }, A + 0.6)
+      .to(rig, { opacity: 0, duration: 0.75, ease: 'power1.in' }, A + 1.45)
       .to('.gate-dusk', { opacity: 0, duration: 0.6 }, A + 1.8)
-      .to(['.door-light', '.door-rays', '.door-dust'], { opacity: 0, duration: 0.7 }, A + 2.2)
+      .to(['.door-light', '.door-rays', '.door-dust'], { opacity: 0, duration: 0.5 }, A + 1.1)
       .add(() => dust && dust.stop(), A + 3.0)
       .to({}, { duration: 0.1 }, A + 3.0);
     // the bells and leaves of the toran swing as the doors part
