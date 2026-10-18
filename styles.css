@@ -672,3 +672,7 @@ section{position:relative}
 /* the doors intro hands over without blurring the full-screen layer (smoother on every machine) */
 .intro[data-mode=doors].done{filter:none;transition:opacity .9s ease,visibility .9s}
 .intro.waiting{touch-action:none}
+/* the intro carries its own copy of the homepage's first photo, identical in framing,
+   so the hand-over to the homepage is pixel-for-pixel seamless */
+.intro-hero{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.intro-hero img{width:100%;height:100%;object-fit:cover;object-position:60% 47%;transform:scale(1.08)}

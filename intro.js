@@ -116,6 +116,7 @@
     // ring handles in the photo: a soft glow invites the knock
     const rings = [[0.331, 0.307], [0.659, 0.307]].map(([fx, fy]) => `<i class="ring-glow" style="left:${D.x + fx * D.w}px;top:${D.y + fy * D.h}px"></i>`).join('');
     doors.innerHTML = `
+      <div class="intro-hero" aria-hidden="true"><img src="assets/img/amphi-mandap.jpg" alt=""></div>
       <div class="door-rig">
         <div class="door-light" style="left:${D.x + D.w / 2}px;top:${D.y + D.h * 0.55}px"></div>
         <div class="door-rays" style="left:${D.x + D.w / 2}px;top:${D.y + D.h * 0.55}px"></div>

@@ -74,13 +74,18 @@
     : new Promise(r => { img.addEventListener('load', () => { bump(); r(); }, { once: true }); img.addEventListener('error', () => { bump(); r(); }, { once: true }); }));
   // measure every scroll section while the intro still covers the page, so nothing
   // jumps at the moment the homepage is revealed
-  const prep = () => { document.documentElement.classList.remove('is-loading'); ScrollTrigger.refresh(); window.scrollTo(0, 0); if (window.__lenis && document.documentElement.classList.contains('pre-home')) window.__lenis.stop(); };
+  const prep = () => { document.documentElement.classList.remove('is-loading'); ScrollTrigger.refresh(); window.scrollTo(0, 0); };
   window.__introPrep = prep;
+  // while the intro is on screen, swallow scroll input (without switching how the page scrolls,
+  // which would force the whole page to re-draw at the moment of the handover)
+  const hold = e => { if (document.documentElement.classList.contains('pre-home')) { e.preventDefault(); e.stopPropagation(); } };
+  document.addEventListener('wheel', hold, { passive: false });
+  document.addEventListener('touchmove', hold, { passive: false });
+  document.addEventListener('keydown', e => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(e.key) && document.documentElement.classList.contains('pre-home') && !e.target.closest('input,textarea')) e.preventDefault(); });
   Promise.race([Promise.all(waits), new Promise(r => setTimeout(r, 3500))]).then(() => {
     (window.__introReady || Promise.resolve()).then(() => {
       if (document.documentElement.classList.contains('is-loading')) prep();
       document.documentElement.classList.remove('pre-home');
-      if (window.__lenis) { window.__lenis.scrollTo(0, { immediate: true }); window.__lenis.start(); }
       loader.classList.add('done');
       intro();
     });
