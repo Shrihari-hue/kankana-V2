@@ -67,7 +67,7 @@
        becomes a real carved doorway at dusk, and the doors wait.
        A tap knocks, a bell rings, and the doors
        swing open in 3D with light pouring through, onto the homepage. */
-    const KIT = window.KNKIntroKit, Sound = KIT && KIT.Sound;
+    const KIT = window.KNKIntroKit, Sound = null; // sound switched off
     const W = innerWidth, H = innerHeight, dpr = Math.min(devicePixelRatio || 1, 2);
     const small = W < 700;
     // ---- real rose petals (see intro-petals.js) ----

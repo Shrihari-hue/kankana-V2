@@ -410,7 +410,7 @@
           }
           g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
           // the sound of water, once, if sound is on and the visitor has already tapped
-          if (!wet && thin > 0.5) { wet = true; const S = window.KNKIntroKit && window.KNKIntroKit.Sound; if (S && S.on && S.water) S.water(); }
+          if (!wet && thin > 0.5) wet = true;
         } else if (v >= 49.9) wet = false;
         if (on) raf = requestAnimationFrame(frame);
       };
