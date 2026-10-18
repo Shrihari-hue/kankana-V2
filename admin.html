@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kankana Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2610170005">
+<link rel="stylesheet" href="booking.css?v=2610170005">
+<link rel="stylesheet" href="admin.css?v=2610170005">
+</head>
+<body class="admin">
+
+<!-- login gate -->
+<div class="ad-login" id="login">
+  <form class="ad-login-card" id="loginForm">
+    <p class="brand">KANKANA</p>
+    <h1>Admin</h1>
+    <label class="fld"><span>Passcode</span><input type="password" name="code" autocomplete="current-password" autofocus></label>
+    <button class="btn-gold" type="submit">Sign in</button>
+    <p class="ad-hint">Demo passcode is set in <b>config.js</b> (admin.demoPasscode). Real staff logins need the server described in the README.</p>
+  </form>
+</div>
+
+<div class="ad-app" id="app" hidden>
+  <aside class="ad-side">
+    <a class="brand" href="index.html">KANKANA</a>
+    <p class="ad-role">Admin</p>
+    <nav class="ad-nav" id="nav">
+      <button data-v="overview" class="is-on"><i>◎</i>Overview</button>
+      <button data-v="bookings"><i>☰</i>Bookings</button>
+      <button data-v="calendar"><i>▦</i>Calendar</button>
+      <button data-v="quote"><i>✎</i>Quotation generator</button>
+      <button data-v="customers"><i>☺</i>Customers</button>
+      <button data-v="enquiries"><i>✉</i>Enquiries<span class="ad-badge" id="enqBadge"></span></button>
+      <button data-v="catalog"><i>₹</i>Venues &amp; pricing</button>
+      <button data-v="discounts"><i>%</i>Discounts</button>
+      <button data-v="payments"><i>↧</i>Payments</button>
+      <button data-v="outbox"><i>➚</i>Automated emails</button>
+      <button data-v="blocks"><i>⊘</i>Blocked dates</button>
+      <button data-v="settings"><i>⚙</i>Settings</button>
+    </nav>
+    <div class="ad-side-foot">
+      <button class="ad-mini" id="seedBtn">Load sample data</button>
+      <button class="ad-mini" id="resetBtn">Reset demo data</button>
+      <a class="ad-mini" href="index.html" target="_blank" rel="noopener">View site ↗</a>
+      <button class="ad-mini" id="logout">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="ad-main">
+    <header class="ad-top">
+      <div><p class="ad-date" id="today"></p><h1 class="ad-title" id="title">Overview</h1></div>
+      <div class="ad-top-r">
+        <label class="ad-search"><span class="sr">Search bookings</span><input id="search" type="search" placeholder="Search reference, name, email…"></label>
+        <div class="ad-new">
+          <button class="btn-gold btn-sm" id="newBtn" aria-haspopup="true" aria-expanded="false">New booking</button>
+          <div class="ad-menu" id="newMenu" hidden>
+            <button data-book="" data-kind="celebration">Celebration</button>
+            <button data-book="villa">Stay</button>
+            <button data-book="turf">Turf / court / café</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="ad-demo" id="demoNote"></div>
+    <section id="view"></section>
+  </main>
+</div>
+
+<!-- booking detail panel -->
+<div class="ad-panel" id="panel" hidden>
+  <div class="ad-panel-scrim"></div>
+  <aside class="ad-panel-card" role="dialog" aria-modal="true" aria-label="Booking details"></aside>
+</div>
+<div class="ad-tip" id="tip" role="tooltip"></div>
+
+<script src="config.js?v=2610170005"></script>
+<script src="booking.js?v=2610170005"></script>
+<script src="admin-more.js?v=2610170005"></script>
+<script src="admin.js?v=2610170005"></script>
+</body>
+</html>

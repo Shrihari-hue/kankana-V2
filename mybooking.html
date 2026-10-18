@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Booking — Kankana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2610170005">
+<link rel="stylesheet" href="booking.css?v=2610170005">
+<style>.loader{display:none}.hdr{background:rgba(10,10,11,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}</style>
+</head>
+<body data-no-drawer="1">
+<div class="grain" aria-hidden="true"></div>
+<header class="hdr">
+  <a href="index.html" class="brand">KANKANA</a>
+  <a href="index.html#estate" class="hdr-link">Back to site</a>
+  <a href="index.html#enquire" class="pill">Enquire</a>
+</header>
+
+<main class="mb">
+  <p class="kick">Manage your booking</p>
+  <h1 class="sec-h">My <em>booking</em></h1>
+  <form class="mb-find" id="find">
+    <label class="fld"><span>Booking reference</span><input name="id" placeholder="KNK-XXXXXX" autocomplete="off" style="text-transform:uppercase"></label>
+    <label class="fld"><span>Email used to book</span><input name="email" type="email" autocomplete="email"></label>
+    <button class="btn-gold" type="submit">Find booking</button>
+  </form>
+  <div class="mb-recent" id="recent"></div>
+  <div id="out"></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="config.js?v=2610170005"></script>
+<script src="booking.js?v=2610170005"></script>
+<script>
+(() => {
+  const C = window.KANKANA_CONFIG, K = window.KNK;
+  const $ = s => document.querySelector(s);
+  const form = $('#find'), out = $('#out');
+  let timer;
+
+  const recent = () => {
+    const list = K.listBookings().slice().reverse().slice(0, 8);
+    $('#recent').innerHTML = list.length ? '<span class="fld" style="margin:0 8px 0 0;align-self:center"><span>On this device</span></span>' + list.map(b => `<button type="button" data-id="${b.id}" data-email="${K.esc(b.customer.email)}">${b.id} · ${K.esc(K.describe(b).title)}</button>`).join('') : '';
+    document.querySelectorAll('#recent button').forEach(x => x.onclick = () => { form.id.value = x.dataset.id; form.email.value = x.dataset.email; show(x.dataset.id, x.dataset.email); });
+  };
+
+  async function find(id, email) {
+    if (C.api.getBooking) {
+      try { const r = await fetch(`${C.api.getBooking}?id=${encodeURIComponent(id)}&email=${encodeURIComponent(email)}`); if (r.ok) return await r.json(); } catch {}
+    }
+    const b = K.getBooking(id);
+    return b && b.customer.email.toLowerCase() === email.toLowerCase() ? b : null;
+  }
+
+  async function show(id, email) {
+    clearInterval(timer);
+    id = id.trim().toUpperCase(); email = email.trim();
+    history.replaceState(null, '', `?id=${id}&email=${encodeURIComponent(email)}`);
+    const b = await find(id, email);
+    if (!b) { out.innerHTML = `<div class="mb-empty">We couldn't find a booking with that reference and email.${C.api.getBooking ? '' : '<br><small style="color:var(--ink-3)">Demo mode: bookings are saved in this browser only.</small>'}</div>`; return; }
+    const si = K.statusInfo(b), d = K.describe(b), q = b.quote, bal = K.balance(b), inv = !!b.invoiceNo;
+    const canPay = (b.status === 'held' || b.status === 'confirmed') && bal > 0;
+    const payAmt = b.status === 'held' ? q.advance : bal;
+    out.innerHTML = `
+      <div class="mb-card">
+        <div class="mb-box">
+          <div class="mb-top"><div><h3>Booking reference</h3><p class="mb-id">${b.id}</p></div><span class="pill-st ${si.tone}">${si.label}</span></div>
+          <p class="mb-note">${K.esc(si.note)} ${b.status === 'held' && b.holdUntil ? '<br>Time left: <span class="mb-count" id="count"></span>' : ''}</p>
+          <div class="rv-head" style="margin-top:18px"><p class="rv-t">${K.esc(d.title)}</p><p>${K.esc(d.when)}</p><p>${K.esc(d.who)}</p></div>
+          <div class="rv-lines">${q.lines.map(l => `<div class="rv-l"><div><p>${K.esc(l.label)}</p><small>${K.esc(l.detail)}${inv ? ` · GST ${l.gst}%` : ''}</small></div><b>${K.inr(l.amount)}</b></div>`).join('')}</div>
+          <div class="rv-sum">
+            ${q.discount ? `<div><span>Before discount</span><b>${K.inr(q.gross)}</b></div><div class="rv-disc"><span>${K.esc(q.discountLabel)}</span><b>− ${K.inr(q.discount)}</b></div>` : ''}
+            ${inv ? `<div><span>Taxable value</span><b>${K.inr(q.subtotal)}</b></div>
+            <div><span>GST</span><b>${K.inr(q.gst)}</b></div>
+            <div class="rv-total"><span>Total</span><b>${K.inr(q.total)}</b></div>
+            <div><span>Paid</span><b>${K.inr(K.paidSum(b))}</b></div>
+            <div class="rv-adv"><span>Balance</span><b>${K.inr(bal)}</b></div>` : `<div class="rv-total"><span>Total (excl. GST)</span><b>${K.inr(q.subtotal)}</b></div>
+            <p class="rv-gst">GST at the applicable rates is added on the tax invoice.</p>`}
+          </div>
+          ${canPay ? `<div class="mb-pay"><button class="btn-gold" id="payBtn">${b.status === 'held' ? `Pay ${q.advancePct}% advance · ${K.inr(payAmt)}` : `Pay balance · ${K.inr(payAmt)}`}</button>${b.status === 'held' ? `<button class="btn-line" id="payAll">Pay in full · ${K.inr(bal)}</button>` : ''}</div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="mb-box"><h3>Documents</h3><div class="mb-docs">
+            <button class="doc-btn" data-doc="quotation">Quotation <span>${b.quotationNo}</span></button>
+            ${b.invoiceNo ? `<button class="doc-btn" data-doc="invoice">Tax invoice <span>${b.invoiceNo}</span></button>` : ''}
+            ${b.payments.map((p, i) => `<button class="doc-btn" data-doc="receipt" data-p="${i}">Receipt · ${K.inr(p.amount)} <span>${p.receiptNo}</span></button>`).join('')}
+          </div></div>
+          <div class="mb-box"><h3>Payments</h3>${b.payments.length ? `<table class="mb-payments">${b.payments.map(p => `<tr><td>${K.dt(p.at)}<br><small>${K.esc(p.method)}</small></td><td>${K.inr(p.amount)}</td></tr>`).join('')}</table>` : '<p class="mb-note" style="margin:0">No payments yet.</p>'}</div>
+          <div class="mb-box"><h3>Booked by</h3><p class="mb-note" style="margin:0">${K.esc(b.customer.name)}<br>${K.esc(b.customer.email)}<br>${K.esc(b.customer.phone)}</p></div>
+        </div>
+      </div>`;
+    document.querySelectorAll('[data-doc]').forEach(x => x.onclick = () => K.pdf(x.dataset.doc, b, b.payments[+x.dataset.p || b.payments.length - 1]));
+    const pay = async amt => {
+      try {
+        const p = await K.checkout({ amount: amt, booking: b, title: `${d.title} · ${amt >= bal ? 'balance' : q.advancePct + '% advance'}` });
+        K.recordPayment(b, amt, p);
+        K.emailNote(b, 'Tax invoice and receipt');
+        show(b.id, b.customer.email); recent();
+      } catch (e) { if (e.message !== 'dismissed') K.toast(e.message); }
+    };
+    $('#payBtn') && ($('#payBtn').onclick = () => pay(payAmt));
+    $('#payAll') && ($('#payAll').onclick = () => pay(bal));
+    if ($('#count')) {
+      const tick = () => { const ms = b.holdUntil - Date.now(); if (ms <= 0) { clearInterval(timer); return show(b.id, b.customer.email); } const h = Math.floor(ms / 3600e3), m = Math.floor(ms % 3600e3 / 6e4), s = Math.floor(ms % 6e4 / 1e3); $('#count').textContent = `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`; };
+      tick(); timer = setInterval(tick, 1000);
+    }
+    gsap.from('.mb-box', { y: 30, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'expo.out' });
+  }
+
+  form.onsubmit = e => { e.preventDefault(); if (!form.id.value || !form.email.value) return K.toast('Enter your booking reference and email.'); show(form.id.value, form.email.value); };
+  const p = new URLSearchParams(location.search);
+  if (p.get('id') && p.get('email')) { form.id.value = p.get('id'); form.email.value = p.get('email'); show(p.get('id'), p.get('email')); }
+  recent();
+})();
+</script>
+</body>
+</html>

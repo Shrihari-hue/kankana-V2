@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kankana Venue &amp; Resorts</title>
+<meta name="description" content="Kankana Venue & Resorts — weddings, celebrations, corporate events and parties, with an amphitheatre, café, turf, pickleball court and six Bali-themed villas around a pool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/brand/kankana-logo.png">
+<link rel="preload" as="image" href="assets/brand/intro-bg-1.jpg">
+<link rel="stylesheet" href="styles.css?v=2610170005">
+<link rel="stylesheet" href="booking.css?v=2610170005">
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="loader intro" id="loader" aria-label="Kankana Venue &amp; Resorts">
+  <div class="intro-bg" aria-hidden="true"><i class="ib1"></i><i class="ib2"></i></div>
+  <div class="intro-sheen" aria-hidden="true"></div>
+  <div class="intro-glow" aria-hidden="true"></div>
+  <div class="intro-mark" id="introMark">
+    <!-- Your own logo: save it as assets/brand/kankana-logo.png (transparent PNG) and it replaces the monogram below automatically -->
+    <div class="mark-png" id="markPng"><img id="markImg" src="assets/brand/kankana-logo.png" alt="Kankana — Weddings &amp; Beyond" decoding="async"><span class="mark-png-shine"></span><span class="mark-png-glint"></span></div>
+    <svg class="mark-svg" id="markSvg" style="display:none" viewBox="0 0 400 430" role="img" aria-label="Kankana — Venue &amp; Resorts">
+      <defs>
+        <linearGradient id="kGold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f6e2b0"/><stop offset=".35" stop-color="#d8b06a"/><stop offset=".62" stop-color="#9a6a32"/><stop offset=".8" stop-color="#c9975a"/><stop offset="1" stop-color="#6e4a22"/>
+        </linearGradient>
+        <linearGradient id="kSheen" gradientUnits="userSpaceOnUse" x1="-260" y1="0" x2="-60" y2="80">
+          <stop offset="0" stop-color="#fff6dc" stop-opacity="0"/><stop offset=".5" stop-color="#fffaf0" stop-opacity=".95"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="kRelief" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#000" flood-opacity=".65"/>
+        </filter>
+        <g id="kArt">
+          <!-- arch (jharokha) -->
+          <path class="k-line" pathLength="1" d="M108 300 V160 C108 104 146 78 200 44 C254 78 292 104 292 160 V300" fill="none" stroke-width="2.2"/>
+          <path class="k-line" pathLength="1" d="M122 300 V164 C122 116 156 92 200 62 C244 92 278 116 278 164 V300" fill="none" stroke-width="1"/>
+          <path class="k-line" pathLength="1" d="M200 44 V24 M193 30 Q200 16 207 30" fill="none" stroke-width="1.6"/>
+          <circle cx="200" cy="18" r="3.2"/>
+          <!-- K -->
+          <text class="k-letter" x="203" y="282" text-anchor="middle" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-weight="600" font-size="236">K</text>
+          <!-- lotus -->
+          <g class="k-lotus">
+            <path d="M200 334 C190 322 190 309 200 298 C210 309 210 322 200 334Z"/>
+            <path d="M200 334 C184 330 175 319 176 306 C188 310 197 321 200 334Z"/>
+            <path d="M200 334 C216 330 225 319 224 306 C212 310 203 321 200 334Z"/>
+            <path d="M200 334 C178 336 164 328 159 316 C175 315 191 324 200 334Z"/>
+            <path d="M200 334 C222 336 236 328 241 316 C225 315 209 324 200 334Z"/>
+          </g>
+          <path class="k-line" pathLength="1" d="M96 300 H304" fill="none" stroke-width="1"/>
+          <!-- wordmark -->
+          <text class="k-word" x="200" y="378" text-anchor="middle" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-weight="500" font-size="36" letter-spacing="11">KANKANA</text>
+          <path class="k-line" pathLength="1" d="M92 402 H146 M254 402 H308" fill="none" stroke-width=".9"/>
+          <text class="k-tag" x="200" y="405.5" text-anchor="middle" font-family="Jost, sans-serif" font-weight="400" font-size="9.5" letter-spacing="4.2">VENUE &amp; RESORTS</text>
+          <circle cx="200" cy="420" r="1.8"/><circle cx="190" cy="420" r="1"/><circle cx="210" cy="420" r="1"/>
+        </g>
+      </defs>
+      <use href="#kArt" fill="url(#kGold)" stroke="url(#kGold)" filter="url(#kRelief)"/>
+      <use href="#kArt" class="k-sheen" fill="url(#kSheen)" stroke="url(#kSheen)"/>
+    </svg>
+  </div>
+  <div class="intro-dive" aria-hidden="true"><img src="assets/img/amphi-mandap.jpg" alt="" decoding="async"></div>
+  <p class="intro-welcome" aria-hidden="true">Welcome to Kankana</p>
+  <button type="button" class="intro-skip" id="introSkip">Skip</button>
+  <p class="intro-foot">Venue &amp; Resorts</p>
+  <div class="loader-bar"><span id="loaderFill"></span></div>
+  <div class="loader-count" id="loaderCount" hidden>000</div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <a href="#top" class="brand" data-scroll-to="#top">KANKANA</a>
+  <div class="hdr-sec" aria-live="polite">
+    <span class="hdr-num" id="hdrNum">00</span>
+    <span class="hdr-dash"></span>
+    <span class="hdr-name" id="hdrName">Welcome</span>
+  </div>
+  <a href="book.html" class="hdr-link">Book</a>
+  <a href="mybooking.html" class="hdr-link hdr-link2">My booking</a>
+  <a href="#venues" class="pill" data-book="" data-kind="celebration">Plan your event</a>
+  <div class="hdr-progress"><span id="hdrProgress"></span></div>
+</header>
+
+<main id="top">
+
+<!-- ============ 00 FILM: hero → mist → descent → venue highlights ============ -->
+<section class="film" id="film" data-sec="00" data-name="Welcome">
+  <div class="stage">
+    <div class="layer l-hero"><img src="assets/img/amphi-mandap.jpg" alt="The Kankana amphitheatre: a garlanded mandap above lotus pools at sunset" fetchpriority="high" style="object-position:60% 47%"></div>
+    <div class="layer l-valley"><img src="assets/img/parking.jpg" alt="Kankana from above at sunset: the halls, gardens and amphitheatre"></div>
+    <div class="layer l-house"><img src="assets/img/aisle.jpg" alt="An outdoor wedding aisle lined with flowers"></div>
+    <div class="layer l-living"><img src="assets/img/amphi-aerial.jpg" alt="The Kankana amphitheatre from above, lit for an evening celebration"></div>
+    <div class="layer l-bed"><img src="assets/img/villa-pool.jpg" alt="The Kankana villas above the pool, lit with lanterns for an evening party"></div>
+    <div class="layer l-night"><img src="assets/img/venue-reception.jpg" alt="The Reception Hall lit for an evening reception, crimson drapes and crystal chandeliers"></div>
+
+    <div class="vignette"></div>
+    <canvas class="mist" id="mist"></canvas>
+    <div class="fogwash"></div>
+
+    <div class="hero-copy">
+      <p class="eyebrow">Venue &amp; Resorts &middot; Weddings &middot; Events &middot; Stays</p>
+      <h1 class="hero-title" aria-label="Kankana">
+        <span class="split-chars">KANKANA</span>
+      </h1>
+      <p class="hero-sub"><span>Where every celebration</span> <span>finds its place.</span></p>
+    </div>
+
+    <div class="hero-drift">
+      <span class="d1">Where every celebration</span>
+      <span class="d2">finds its place.</span>
+    </div>
+
+    <h2 class="fog-line"><span class="split-chars">Step into the celebration.</span></h2>
+
+    <p class="cap cap-living"><span class="cap-k">The Lawns &amp; Amphitheatre</span><span class="cap-t">Say “I do” under an open sky. Take the stage after dark.</span></p>
+    <p class="cap cap-bed"><span class="cap-k">The Villas</span><span class="cap-t">Six Bali-style villas, one shared pool.</span></p>
+    <p class="cap cap-night right"><span class="cap-k">Celebrations</span><span class="cap-t">And when the lights come on, the party begins.</span></p>
+    <a href="#venues" class="ghost-btn" data-book="" data-kind="celebration">Plan your event</a>
+
+    <div class="scroll-hint"><span>Scroll</span><i></i></div>
+  </div>
+</section>
+
+<!-- ============ 01 EXPLORE: curved 3D gallery ============ -->
+<section class="inside" id="inside" data-sec="01" data-name="Explore">
+  <div class="stage">
+    <div class="cyl-blur" id="cylBlur">
+      <div class="cyl-persp">
+        <div class="cyl" id="cyl"></div>
+      </div>
+    </div>
+    <div class="inside-shade"></div>
+    <h2 class="inside-title"><span class="kicker">One venue, every occasion</span><span class="split-chars">Welcome to Kankana</span></h2>
+
+    <article class="glass-card" id="glassCard">
+      <header class="gc-top"><span class="gc-label">What we host</span><span class="gc-count"><b id="gcNum">01</b> / 04</span></header>
+      <div class="gc-rule"><span id="gcRule"></span></div>
+      <div class="gc-body">
+        <div class="gc-item is-active">
+          <p class="gc-room">Weddings</p>
+          <h3>From the first ritual to the last dance.</h3>
+          <p>Mehendi on the lawns, the ceremony under open sky, the sangeet on our amphitheatre stage. Your guests can stay in the villas, so the celebration doesn't have to end at midnight.</p>
+        </div>
+        <div class="gc-item">
+          <p class="gc-room">Celebrations &amp; Parties</p>
+          <h3>Birthdays, anniversaries, and every reason in between.</h3>
+          <p>Intimate dinners by the pool or full-volume nights with a DJ. Bring the people. We'll handle the space, the food and the lights.</p>
+        </div>
+        <div class="gc-item">
+          <p class="gc-room">Corporate Events</p>
+          <h3>Offsites people actually look forward to.</h3>
+          <p>Conferences, town halls, team days and award nights. Keynote in the amphitheatre, a match on the turf, dinner on the lawns.</p>
+        </div>
+        <div class="gc-item">
+          <p class="gc-room">Stay</p>
+          <h3>Six Bali-themed villas around one pool.</h3>
+          <p>Stay for the event or make a weekend of it: coffee at the café, a game of pickleball, and long, slow afternoons by the water.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 02 NIGHT: tiles → points of light → line → panorama ============ -->
+<section class="rest" id="rest" data-sec="02" data-name="Unwind">
+  <div class="stage">
+    <div class="scatter" id="scatter"></div>
+    <h2 class="rest-word"><span class="split-chars">Unwind.</span><small>After the celebration, the quiet.</small></h2>
+    <div class="beamline"></div><span class="beamring"></span>
+    <div class="pano"><img src="assets/img/villa-pool.jpg" alt="The pool at Kankana, glowing with lanterns at dusk" style="object-position:50% 62%"><img class="pano-b" src="assets/img/cafewindow.jpg" alt=""></div>
+    <p class="pano-cap"><span class="cap-k">The Pool</span><span class="cap-t">Six villas, one pool, and nowhere you need to be.</span></p>
+  </div>
+</section>
+
+<!-- ============ 03 A DAY: morning / afternoon / evening ============ -->
+<section class="day chain" id="day" data-sec="03" data-name="A day at Kankana">
+  <div class="stage">
+    <div class="day-grid">
+      <div class="day-main">
+        <div class="day-tab"><span class="tab-roll"><b>Morning</b><b>Afternoon</b><b>Evening</b></span><i>&#8600;</i></div>
+        <div class="dm-img is-on"><img src="assets/img/cafewindow.jpg" alt="Sunlit café with plants and coffee"></div>
+        <div class="dm-img"><img src="assets/img/turf.jpg" alt="Football on the turf"></div>
+        <div class="dm-img"><img src="assets/img/amphi-aerial.jpg" alt="The amphitheatre from above, lit for an evening celebration"></div>
+      </div>
+      <div class="day-side">
+        <div class="day-row">
+          <div class="ds ds-a">
+            <div class="ds-img is-on"><img src="assets/img/cafe.jpg" alt="Café interior"></div>
+            <div class="ds-img"><img src="assets/img/pooldeck.jpg" alt="Loungers on the pool deck"></div>
+            <div class="ds-img"><img src="assets/img/toast.jpg" alt="Guests raising a toast"></div>
+          </div>
+          <div class="ds ds-b">
+            <div class="ds-img is-on"><img src="assets/img/pickleball.jpg" alt="Pickleball net and balls on court"></div>
+            <div class="ds-img"><img src="assets/img/villa-poolside.jpg" alt="The pool beside the villas"></div>
+            <div class="ds-img"><img src="assets/img/dj.jpg" alt="DJ at the decks"></div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="dc-top">
+            <span class="dc-label"><em id="dayNum">I</em> &mdash; <em id="dayName">Morning</em></span>
+            <span class="dc-time" id="dayTime">07:30</span>
+          </div>
+          <div class="dc-heads">
+            <h3 class="is-on">Coffee at the café,<br>then first serve on the court.</h3>
+            <h3>A match on the turf,<br>a long swim after.</h3>
+            <h3>The stage lights up.<br>The night is yours.</h3>
+          </div>
+          <div class="dc-foot">
+            <div class="dc-orb">
+              <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" class="track"/><circle cx="30" cy="30" r="27" class="ring" id="dayRing"/></svg>
+              <div class="orb-img is-on"><img src="assets/img/coffee.jpg" alt=""></div>
+              <div class="orb-img"><img src="assets/img/poolpalms.jpg" alt=""></div>
+              <div class="orb-img"><img src="assets/img/t/amphi-mandap.jpg" alt=""></div>
+            </div>
+            <div class="dc-notes">
+              <p class="is-on">The café opens early for breakfast and fresh coffee. The pickleball court is right next door.</p>
+              <p>The turf takes football and cricket, and the Bali villas and pool are a short walk away.</p>
+              <p>Live music, performances or a DJ in the amphitheatre, with dinner on the lawns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 SPACES: row → viewer ============ -->
+<section class="rooms chain" id="rooms" data-sec="04" data-name="Our spaces">
+  <div class="stage">
+    <div class="rooms-intro">
+      <h2 class="rooms-head"><span class="ln"><span>Seven spaces,</span></span><span class="ln"><span class="muted">one destination.</span></span></h2>
+      <p class="rooms-sub">Seven settings across the estate, each one made for a different kind of day.</p>
+      <div class="rooms-row" id="roomsRow">
+        <figure><img src="assets/img/arch-garden.jpg" alt=""><figcaption>The Lawns</figcaption></figure>
+        <figure><img src="assets/img/t/amphi-aerial.jpg" alt=""><figcaption>Amphitheatre</figcaption></figure>
+        <figure><img src="assets/img/cafe.jpg" alt=""><figcaption>The Café</figcaption></figure>
+        <figure><img src="assets/img/turfnight.jpg" alt=""><figcaption>The Turf</figcaption></figure>
+        <figure><img src="assets/img/pickleball.jpg" alt=""><figcaption>Pickleball</figcaption></figure>
+        <figure><img src="assets/img/t/villa-firepit.jpg" alt=""><figcaption>Bali Villas</figcaption></figure>
+        <figure><img src="assets/img/t/villa-poolside.jpg" alt=""><figcaption>The Pool</figcaption></figure>
+      </div>
+    </div>
+
+    <p class="r-out r-out-l" aria-hidden="true">Spaces are where you gather.</p>
+    <p class="r-out r-out-r" aria-hidden="true">Moments are what you keep.</p>
+    <div class="r-zoom" aria-hidden="true"><img src="assets/img/arch-garden.jpg" alt=""></div>
+    <div class="viewer" id="viewer">
+      <div class="v-media">
+        <div class="v-img"><img src="assets/img/arch-garden.jpg" alt="The Lawns"></div>
+        <div class="v-img"><img src="assets/img/amphi-aerial.jpg" alt="The Amphitheatre from above: tiered seating around a mandap and lotus pools"></div>
+        <div class="v-img"><img src="assets/img/cafewindow.jpg" alt="The Café"></div>
+        <div class="v-img"><img src="assets/img/turfnight.jpg" alt="The Turf"></div>
+        <div class="v-img"><img src="assets/img/pickleball.jpg" alt="Pickleball Court"></div>
+        <div class="v-img"><img src="assets/img/villa-firepit.jpg" alt="The Bali villas at sunset, with the fire pit and thatched bar on the lawn"></div>
+        <div class="v-img"><img src="assets/img/villa-poolside.jpg" alt="The pool beside the villas, lit at sunset"></div>
+        <div class="v-card">
+          <span class="v-num" id="vNum">01</span>
+          <div class="v-titles">
+            <h3 class="is-on">The Lawns</h3><h3>The Amphitheatre</h3><h3>The Café</h3><h3>The Turf</h3><h3>Pickleball Court</h3><h3>The Bali Villas</h3><h3>The Pool</h3>
+          </div>
+          <div class="v-descs">
+            <p class="is-on">Open green lawns for wedding ceremonies, receptions and big outdoor celebrations.</p>
+            <p>Tiered open-air seating around a central mandap and lotus pools, for pheras, sangeets, performances and keynotes.</p>
+            <p>Coffee, breakfast and all-day bites for guests, teams and anyone passing through.</p>
+            <p>A turf ground for football, cricket and team-building matches, day or night.</p>
+            <p>Bring friends, colleagues or the whole family. No experience needed.</p>
+            <p>Six Bali-themed villas with timber, thatch and tropical gardens, built for guests and wedding families.</p>
+            <p>The heart of the resort, shared by all six villas. Pool parties welcome.</p>
+          </div>
+          <span class="v-go" aria-hidden="true"></span>
+        </div>
+      </div>
+      <aside class="v-panel">
+        <p class="vp-label">Our spaces <span>07</span></p>
+        <ol class="vp-list" id="vpList">
+          <li class="is-on"><i></i>The Lawns</li>
+          <li><i></i>The Amphitheatre</li>
+          <li><i></i>The Café</li>
+          <li><i></i>The Turf</li>
+          <li><i></i>Pickleball Court</li>
+          <li><i></i>The Bali Villas</li>
+          <li><i></i>The Pool</li>
+        </ol>
+        <dl class="vp-spec">
+          <div><dt>Best for</dt><dd id="vArea">—</dd></div>
+          <div><dt>When</dt><dd id="vOut">—</dd></div>
+        </dl>
+        <a href="#enquire" class="pill pill-sm" data-scroll-to="#enquire">Enquire</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 MOMENTS: slat transition ============ -->
+<section class="moments chain" id="moments" data-sec="05" data-name="Moments">
+  <div class="stage">
+    <div class="slats" id="slats"></div>
+    <div class="m-seed" aria-hidden="true"><img src="assets/img/villa-pool.jpg" alt="" style="object-position:50% 75%"></div>
+    <div class="m-sweep" aria-hidden="true"></div>
+    <h2 class="sr-only">Celebrate, meet, play and stay: everything you need for the occasion, in one place.</h2>
+  </div>
+</section>
+
+<!-- ============ 06 SHOWTIME: falling light → beam → stage ============ -->
+<section class="climb chain" id="climb" data-sec="06" data-name="Showtime">
+  <div class="stage">
+    <div class="drop-line"></div>
+    <div class="drop-dot"><i></i></div>
+    <p class="elev">Showtime <b id="elev">17:00</b></p>
+    <svg class="ridge-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path id="ridgePath" d=""/></svg>
+    <div class="beam"><img src="assets/img/amphi-aerial.jpg" alt="The amphitheatre glowing at dusk"></div>
+    <h2 class="climb-text"><span>
+      <span class="w">Every</span> <span class="w">great</span> <span class="w">memory</span><br>
+      <span class="w">needs</span> <span class="w">a</span> <span class="w">stage.</span>
+    </span></h2>
+    <p class="climb-foot">The Amphitheatre &middot; open-air &middot; under the stars</p>
+  </div>
+</section>
+
+<!-- ============ 07 FACILITIES: split panels → blueprint → bento ============ -->
+<section class="built chain" id="built" data-sec="07" data-name="Facilities">
+  <div class="stage">
+    <div class="panels" id="panels">
+      <div class="panel"><div class="pi"></div><div class="pj"><img src="assets/img/arch-garden.jpg" alt=""></div></div>
+      <div class="panel"><div class="pi"></div><div class="pj"><img src="assets/img/venue-reception.jpg" alt=""></div></div>
+      <div class="panel"><div class="pi"></div><div class="pj"><img src="assets/img/amphi-steps.jpg" alt=""></div></div>
+    </div>
+    <h2 class="built-title"><span class="split-chars">Made for the big days.</span></h2>
+
+    <div class="blueprint" id="blueprint">
+      <span class="bl v v1"></span><span class="bl v v2"></span><span class="bl v v3"></span><span class="bl v v4"></span><span class="bl v v5"></span>
+      <span class="bl h h1"></span><span class="bl h h2"></span><span class="bl h h3"></span>
+    </div>
+    <div class="bp-outlines" id="bpOut" aria-hidden="true"></div>
+    <h2 class="bp-title"><span class="split-chars">Planned around the people you love.</span></h2>
+
+    <div class="bento-wrap">
+      <div class="bento-track" id="bentoTrack">
+        <div class="bento">
+          <div class="b b-big"><img src="assets/img/venue-reception.jpg" alt="The Reception Hall draped in crimson with crystal chandeliers"><div class="b-cap"><h3>Celebrate</h3><p>Weddings, receptions, birthdays, anniversaries and parties.</p></div></div>
+          <div class="b b-stat"><span class="b-k">Stage</span><strong class="word">Amphitheatre</strong></div>
+          <div class="b b-img"><img src="assets/img/reception.jpg" alt=""></div>
+          <div class="b b-img"><img src="assets/img/conference.jpg" alt=""></div>
+          <div class="b b-stat"><span class="b-k">Also hosting</span><strong class="word">Corporate</strong></div>
+        </div>
+        <div class="bento">
+          <div class="b b-big"><img src="assets/img/turfnight.jpg" alt=""><div class="b-cap"><h3>Play</h3><p>Sport and downtime between the big moments.</p></div></div>
+          <div class="b b-stat"><span class="b-k">Field</span><strong class="word">Turf</strong></div>
+          <div class="b b-img"><img src="assets/img/pickleball.jpg" alt=""></div>
+          <div class="b b-img"><img src="assets/img/cafe.jpg" alt=""></div>
+          <div class="b b-stat"><span class="b-k">Court</span><strong class="word">Pickleball</strong></div>
+        </div>
+        <div class="bento">
+          <div class="b b-big"><img src="assets/img/villa-pool.jpg" alt="The villas and pool at dusk"><div class="b-cap"><h3>Stay</h3><p>Bali-themed villas, steps from the pool.</p></div></div>
+          <div class="b b-stat"><span class="b-k">Bali villas</span><strong>6</strong></div>
+          <div class="b b-img"><img src="assets/img/villa-firepit.jpg" alt=""></div>
+          <div class="b b-img"><img src="assets/img/bedwarm.jpg" alt=""></div>
+          <div class="b b-stat"><span class="b-k">Pool</span><strong>1</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 EXPLORE VENUES ============ -->
+<section class="vx" id="venues" data-sec="08" data-name="Explore venues">
+  <div class="vx-sticky">
+    <div class="vx-head">
+      <div><p class="kick">Celebrations &middot; booked by the day</p><h2 class="sec-h">Explore <em>venues</em></h2></div>
+      <p class="sec-p">Six spaces for up to 800 guests. Book one or several, for 1 to 5 days, and see the full price with GST before you pay.</p>
+    </div>
+    <div class="vx-track" id="vxTrack"></div>
+    <div class="vx-progress"><span id="vxProg"></span></div>
+  </div>
+</section>
+
+<!-- ============ 09 CELEBRATIONS ============ -->
+<section class="cx" id="celebrations" data-sec="09" data-name="Celebrations">
+  <div class="cx-top">
+    <div><p class="kick">Food &amp; hospitality</p><h2 class="sec-h reveal">Celebrations, <em>catered.</em></h2></div>
+    <p class="sec-p reveal">Choose a package when you book your venue. Each one is priced per guest, per day, so you know the cost of every day of your celebration upfront.</p>
+  </div>
+  <div class="pk3" id="pk3"></div>
+
+  <div class="how">
+    <div class="how-c reveal"><p class="kick">Celebrations</p><h4><b>30%</b> advance</h4><p>Pay 30% to confirm, or we hold your dates for 72 hours while you decide.</p></div>
+    <div class="how-c reveal"><p class="kick">Stays</p><h4><b>50%</b> advance</h4><p>Villas and guest rooms are confirmed with 50%, with a 24-hour hold.</p></div>
+    <div class="how-c reveal"><p class="kick">Turf, court &amp; café</p><h4>Paid <b>in full</b></h4><p>Hourly bookings and café tables are paid in full when you book.</p></div>
+  </div>
+  <ol class="steps-line">
+    <li class="reveal"><b>Pick &amp; choose dates</b>The calendar only shows dates and times that are actually free.</li>
+    <li class="reveal"><b>See the full price</b>Every line, with GST worked out, before you pay a rupee.</li>
+    <li class="reveal"><b>Pay securely</b>UPI, cards or netbanking through Razorpay.</li>
+    <li class="reveal"><b>Get it in writing</b>A quotation PDF by email, then a tax invoice and a receipt for every payment.</li>
+  </ol>
+</section>
+
+<!-- ============ 10 THE WEDDING DAY ============ -->
+<section class="wd" id="wedding" data-sec="10" data-name="The wedding day">
+  <div class="wd-head">
+    <p class="kick">Wedding extras</p>
+    <h2 class="sec-h reveal">The wedding <em>day.</em></h2>
+    <p class="sec-p reveal" style="margin-top:20px">From the first guest landing to the last photograph, add the services you need when you book your celebration.</p>
+  </div>
+  <div class="wd-grid">
+    <div class="wd-media" id="wdMedia"><p class="wd-time" id="wdTime"></p></div>
+    <div class="wd-list" id="wdList"></div>
+  </div>
+  <div class="wd-cta">
+    <button type="button" class="btn-gold" data-book="" data-kind="celebration">Plan your wedding</button>
+    <span class="sec-p" style="font-size:14px">Wedding bookings can also add villas and rooms for guests on the same nights.</span>
+  </div>
+</section>
+
+<!-- ============ 11 ON THE ESTATE ============ -->
+<section class="es" id="estate" data-sec="11" data-name="On the estate">
+  <div class="es-top">
+    <div><p class="kick">Every space &amp; stay</p><h2 class="sec-h reveal">On the <em>estate.</em></h2></div>
+    <div class="es-tabs" role="tablist">
+      <button class="is-on" data-f="all" role="tab">All</button>
+      <button data-f="celebration" role="tab">Celebrate</button>
+      <button data-f="stay" role="tab">Stay</button>
+      <button data-f="unwind" role="tab">Unwind</button>
+    </div>
+  </div>
+  <div class="es-grid" id="esGrid"></div>
+</section>
+
+<!-- ============ 12 ENQUIRY ============ -->
+<section class="eq" id="enquire" data-sec="12" data-name="Enquire">
+  <div class="eq-l">
+    <p class="kick">Enquiry</p>
+    <h2 class="sec-h reveal">Rather talk it <em>through?</em></h2>
+    <p class="sec-p reveal">Tell us what you're planning and we'll get back to you. Or <a href="mybooking.html" style="color:var(--gold)">check an existing booking</a>.</p>
+    <div class="eq-contact" id="eqContact"></div>
+  </div>
+  <form class="eq-form" id="eqForm" novalidate>
+    <label class="fld"><span>Full name</span><input name="name" autocomplete="name" required></label>
+    <label class="fld"><span>Phone</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+91"></label>
+    <label class="fld full"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+    <label class="fld"><span>Occasion</span><select name="occasion"><option>Wedding</option><option>Engagement</option><option>Birthday</option><option>Anniversary</option><option>Corporate event</option><option>Party</option><option>Stay</option><option>Something else</option></select></label>
+    <label class="fld"><span>Guests</span><input name="guests" type="number" min="1" inputmode="numeric" placeholder="Approx."></label>
+    <label class="fld full"><span>Preferred date <small>(optional)</small></span><input name="date" type="date"></label>
+    <label class="fld full"><span>Tell us more</span><textarea name="message" rows="4"></textarea></label>
+    <div class="full"><button type="submit" class="btn-gold">Send enquiry</button></div>
+  </form>
+</section>
+
+<!-- ============ 08 FINALE: zoom → wordmark ============ -->
+<section class="finale" id="finale" data-sec="13" data-name="Plan your event">
+  <div class="stage">
+    <div class="layer f-a"><img src="assets/img/villa-pool.jpg" alt="The Kankana villas and pool at dusk"></div>
+    <div class="layer f-b"><img src="assets/img/venue-reception.jpg" alt="Chandeliers in the Reception Hall"></div>
+    <div class="layer f-c"><img src="assets/img/villa-poolside.jpg" alt="Kankana villas and pool at sunset"></div>
+    <div class="vignette"></div>
+    <p class="f-line f-l1">Your celebration,</p>
+    <p class="f-line f-l2">our venue.</p>
+
+    <div class="f-meta">
+      <div><p>Kankana Venue &amp; Resorts</p><p>[Your address, city]</p><p>Weddings &middot; Events &middot; Stays</p></div>
+      <div class="f-meta-r"><p>[+91 phone number]</p><p>[email@kankana.com]</p></div>
+    </div>
+    <h2 class="wordmark" aria-label="Kankana"><span>K</span><span>A</span><span>N</span><span>K</span><span>A</span><span>N</span><span>A</span></h2>
+    <div class="f-cta">
+      <a href="#venues" class="pill pill-solid" data-book="" data-kind="celebration">Plan your event</a>
+      <a href="#estate" class="pill" data-book="villa">Book a villa</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>&copy; Kankana Venue &amp; Resorts</span>
+  <span>Weddings &middot; Celebrations &middot; Corporate &middot; Stays</span>
+  <a href="#top" data-scroll-to="#top">Back to top &uarr;</a>
+</footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="intro-kit.js?v=2610170005"></script>
+<script src="intro-petals.js?v=2610170005"></script>
+<script src="intro.js?v=2610170005"></script>
+<script src="config.js?v=2610170005"></script>
+<script src="booking.js?v=2610170005"></script>
+<script src="sections.js?v=2610170005"></script>
+<script src="main.js?v=2610170005"></script>
+</body>
+</html>
