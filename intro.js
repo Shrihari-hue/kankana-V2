@@ -126,8 +126,7 @@
         ${rings}
         <div class="door-deco"></div>
       </div>
-      <div class="door-bloom"></div>
-      <p class="intro-enter" role="button" tabindex="0" style="top:${Math.min(H - 34, D.y + D.h + (small ? 34 : 46))}px">${matchMedia('(hover:hover)').matches ? 'Click' : 'Tap'} to enter</p>`;
+      <div class="door-bloom"></div>`;
     loader.appendChild(doors);
     doors.style.setProperty('--dw', D.w + 'px'); doors.style.setProperty('--dh', D.h + 'px');
     const rig = doors.querySelector('.door-rig'), deco = doors.querySelector('.door-deco');
@@ -180,8 +179,9 @@
         .fromTo(d.querySelector('img'), { filter: 'brightness(2.2)' }, { filter: 'brightness(1)', duration: 0.6, ease: 'power2.out' }, at)
         .fromTo(d.querySelector('.d-pool'), { opacity: 0 }, { opacity: 1, duration: 0.7 }, at);
     });
-    const WAIT = 6.9;
-    tl.fromTo('.intro-enter', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 }, WAIT - 0.35);
+    const WAIT = 7.4;   // the closed doors hold for a beat, then open on their own
+    // measure the page while the doors are still closed (no tap needed: they open on their own)
+    tl.add(() => { if (window.__introPrep && document.documentElement.classList.contains('is-loading')) window.__introPrep(); }, WAIT - 0.5);
 
     /* ---- wait at the closed doors until the visitor knocks ---- */
     let waiting = false, opened = false, heard = false, autoT;
@@ -196,7 +196,7 @@
       gsap.fromTo('.ring-glow', { scale: 1 }, { scale: 1.6, duration: 0.12, yoyo: true, repeat: 3 });
       gsap.delayedCall(0.6, () => tl.play());
     };
-    if (!seen && !reduce) {
+    if (false) {
       tl.addPause(WAIT, () => {
         waiting = true; loader.classList.add('waiting');
         if (window.__introPrep && document.documentElement.classList.contains('is-loading')) window.__introPrep();
